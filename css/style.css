@@ -2,6 +2,8 @@
   font-size: 62.5%;
   --font-family: "Inter", sans-serif;
   --blue: #9cadce;
+  --pink: #FF69B4;
+  --white: white;
 }
 
 body {
@@ -29,7 +31,7 @@ section {
   height: 80%;
   border-radius: 20px 20px 0 0;
   background-image: url(/img/background-elemets.png);
-  background-color: white;
+  background-color: var(--white);
 }
 
 .section__clock {
@@ -41,6 +43,7 @@ section {
   width: 400px;
   height: 466px;
   box-shadow: -4px -4px 12px 0 var(--blue), 4px 4px 12px 0 var(--blue);
+  animation: box-shadow 5s linear infinite;
 }
 
 .time {
@@ -50,6 +53,7 @@ section {
   text-align: right;
   color: var(--blue);
   margin-top: 42px;
+  animation: color 5s linear infinite;
 }
 
 .date {
@@ -64,23 +68,70 @@ section {
 .clock {
   display: flex;
   position: relative;
+  justify-content: center;
+  align-items: center;
   margin-top: 30px;
   width: 66px;
   height: 66px;
   background-color: var(--blue);
   border-radius: 15px;
+  animation: background__clock 5s linear infinite;
 }
 
-.clock__seconds {
+.clock__minutes {
   position: absolute;
-  width: 7px;
+  width: 4px;
   height: 26px;
-  background-color: white;
+  background-color: var(--white);
   border-radius: 10px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -100%);
-  transform-origin: bottom;
+  bottom: 31px;
+  left: 31px;
+  transform: rotate(0deg);
+  transform-origin: 50% 100%;
+  z-index: 0;
+}
+
+.clock__hours {
+  position: absolute;
+  width: 5px;
+  height: 22px;
+  background-color: var(--white);
+  border-radius: 10px;
+  bottom: 31px;
+  left: 31px;
+  transform: rotate(0deg);
+  transform-origin: 50% 100%;
+  z-index: 1;
+}
+
+@keyframes box-shadow {
+  50% {
+    box-shadow: -4px -4px 12px 0 var(--pink), 4px 4px 12px 0 var(--pink);
+  }
+
+  100% {
+    box-shadow: -4px -4px 12px 0 var(--blue), 4px 4px 12px 0 var(--blue);
+  }
+}
+
+@keyframes color {
+  50% {
+    color: var(--pink);
+  }
+
+  100% {
+    color: var(--blue);
+  }
+}
+
+@keyframes background__clock {
+  50% {
+    background-color: var(--pink);
+  }
+
+  100% {
+    background-color: var(--blue);
+  }
 }
 
 @media screen and (max-width: 550px ) {
