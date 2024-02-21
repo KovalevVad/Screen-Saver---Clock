@@ -1,4 +1,5 @@
 import { aormatedTime } from './helper.js';
+
 let time = document.querySelector('.time');
 let date = document.querySelector('.date');
 let arrowHours = document.querySelector('#arrow__hours');
